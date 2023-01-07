@@ -1,0 +1,151 @@
+Create a folder using mkdir command in linux
+Then ls -l
+you will get details about your directory
+Details will be --- Time stamp of the creation
+		    Owner name
+		    Permissions -- For directory drwxr-xr-x
+
+Create a file using vi editor , vi filename
+It will open a new file
+Press insert to add content in it
+After adding press Esc and shift : together
+Then type wq to save and close the file.
+It will create a new file in your system
+Then ls -l
+you will get details about your file
+Details will be --- Time stamp of the creation
+		    Owner name
+		    Permissions -- For directory -rwxr-xr-x
+
+Create a another user on system
+	//Command to add new user
+	sudo useradd prabhat     
+	//Command to set password to new user
+	sudo passwd prabhat
+	//Command to view whether user is added or not
+	cat /etc/passwd
+
+//List all users on the machine
+cd /home
+sudo ls -la /home/<username>
+Within the home directory, the user can write, edit and delete files and directories.
+
+By default useradd creates the user’s home directory in /home. If you want to create the user’s home directory in other location, use the d (--home) option.
+
+Here is an example showing how to create a new user named username with a home directory of /opt/username:
+
+sudo useradd -m -d /opt/username mydevopsuser
+Different directories in linux
+home --- home directory contains a home folder for each user
+etc --- directory tree contains all the configuration files for the X Window System
+opt --- reserved for the installation of add-on application software packages.
+lib --- contains those shared library images needed to boot the system and run the commands in the root filesystem
+/bin – binary or executable programs.
+/etc – system configuration files.
+/home – home directory. ...
+/opt – optional or third-party software.
+/tmp – temporary space, typically cleared on reboot.
+/usr – User related programs.
+/var – log files.
+
+https://www.howtogeek.com/117435/htg-explains-the-linux-directory-structure-explained/
+
+Permissions --- rwx on file 
+r - read  read file contents(cat)  --- 4
+w - write write contents in a file(vi) --- 2
+x - excute exceute the file  ---1
+
+rwx on directory 
+r - read  read directory contents(ls)
+w - write create a file in directory(touch)
+x - excute change to directory(cd)
+9 characters
+rwxrwxrwx
+
+
+To summarise, the first rwx triplet represents the permissions for the user owner. The
+second triplet corresponds to the group owner; it specifies permissions for all members of
+that group. The third triplet defines permissions for all other users that are not the user
+owner and are not a member of the group owner.
+
+change user to root
+	sudo su root
+
+To avoid getting error username is not added in sudoers file follow below steps
+su root
+	visudo /etc/sudoers
+	username ALL=(ALL:ALL) ALL 
+
+replace username with your user
+then you will be su to root user 
+
+//Byrunning below command we are add anotheruser to root group without granting all permissions
+sudo usermod -a -G root anotheruser
+
+//By modifiying entry of anotheruser in /etc/passwd 
+anotheruser:x:0:0 /.......
+We are going to have anotheruser as a second root user
+
+-----Shell Scripting -------------------------
+The Linux command line is provided by a program called the shell. 
+Default shell is known as Bourne Again Shell (bash)
+
+When you first launch the shell, it uses a startup script located in the .bashrc or .bash_profile 
+file which allows you to customize the behavior of the shell.
+
+When a shell is used interactively, it displays a $ when it is waiting for a command from the user.
+This is called the shell prompt.
+
+What is a Bash Script?
+A bash script is a series of commands written in a file. 
+These are read and executed by the bash program. 
+The program executes line by line.
+
+Scripts are also identified with a shebang. Shebang is a combination of bash # and bang !  followed the the bash shell path. This is the first line of the script. Shebang tells the shell to execute it via bash shell. Shebang is simply an absolute path to the bash interpreter.
+
+Below is an example of the shebang statement.
+
+#! /bin/bash
+
+Find the path to your bash shell.
+which bash
+which bash
+
+
+Conditions are expressions that evaluate to a boolean expression (true or false). To check conditions, we can use if, if-else, if-elif-else and nested conditionals.
+
+The structure of conditional statements is as follows:
+
+if...then...fi statements
+if...then...else...fi statements
+if..elif..else..fi
+if..then..else..if..then..fi..fi.. (Nested Conditionals)
+
+Syntax:
+
+if [[ condition ]]
+then
+	statement
+elif [[ condition ]]; then
+	statement 
+else
+	do this by default
+fi
+
+
+Looping and skipping
+For loops allow you to execute statements a specific number of times.
+
+Looping with numbers:
+In the example below, the loop will iterate 5 times.
+
+for i in {1..5}
+do
+    echo $i
+done
+
+
+While loop
+While loops check for a condition and loop until the condition remains true. We need to provide a counter statement that increments the counter to control loop execution.
+
+In the example below, (( i += 1 )) is the counter statement that increments the value of i.

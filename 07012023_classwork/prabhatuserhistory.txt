@@ -1,0 +1,11 @@
+1  ls -al
+    2  vi EveryoneFullControl.txt
+    3  vi hello.txt
+    4  cat OnlyOwnersRead.txt
+    5  cd OnlyUserEnter/
+    6  vi OwnersAll_RestNothing.txt
+    7  cd UserAndGroupEnter/
+    8  cd AllEnter_UserCreateDelete/
+    9  ls
+   10  touch prabhatstextfile.txt
+   11  history
