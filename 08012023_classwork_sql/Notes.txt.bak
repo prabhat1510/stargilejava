@@ -1,0 +1,83 @@
+// To create new database in DBMS
+create database abctradersdb;  
+// To connect to database created above
+\c abctradersdb;    
+//To check whether any tables are presen in database
+\dt;
+
+//Create table
+CREATE TABLE PMSOffices 
+(
+  officeCode VARCHAR(10) ,
+  city VARCHAR(50) ,
+  phone VARCHAR(50) ,
+  addressLine1 VARCHAR(50) ,
+  addressLine2 VARCHAR(50) ,
+  state VARCHAR(50),
+  country VARCHAR(50) ,
+  postalCode VARCHAR(15)
+)
+
+//add a column using alter command
+alter table pmsoffices add column territory varchar(10);
+//Check whether column is added or not
+\d pmsoffices;
+
+//delete a column from a table
+alter table pmsoffices drop column addressLine2;
+//Check whether column is deleted or not
+\d pmsoffices;
+//Change data type of a column  officeCode
+alter table pmsoffices alter column officeCode type integer using officecode::integer;
+//Create employee with serial data type so that empid value will be auto incremented
+create table employee (empid serial,empname varchar(50));
+//Retrieve all records or rows from employee table
+select * from employee;
+
+//insert statement to enter the data in a row in a table
+insert into employee (empname) values('Rakesh');
+insert into employee (empname) values('Faiyaz');
+
+//Renaming the column
+alter table pmsoffices rename column postalcode to zipcode;
+
+//Rename the table
+alter table pmsoffices rename to offices;
+
+//Rename table to another database table with same data structure
+alter table abctradersdb.employee rename To bmsdb.employee;
+
+//Removes table and its structre along with data from database
+drop table offices;
+//It will not delete the structre of the table. It will remove the data.
+truncate table employee;
+
+//
+ alter table employee add column salary int;
+ 
+ //
+ insert into employee (empname,salary) values('Nithin',155500);
+ 
+ //
+ select empname,salary from employee;
+ 
+ insert into employee (empname,salary) values('Prashanth',1453000);
+ insert into employee values(5,'Prashanth',1453000);
+ 
+ //Always if you want to add multiple rows 
+ insert into employee (empname,salary) values('Manoj',1153000);
+ insert into employee (empname,salary) values('Raji',1253000);
+ insert into employee (empname,salary) values('Manjunath',853000);
+ insert into employee (empname,salary) values('Ronni',753000);
+ 
+ //Copy of employee table
+ create table employee_copy (empid serial,empname varchar(50),salary int);
+ insert into employee_copy select * from employee;
+ select * from employee_copy;
+ 
+ //Delete
+ delete from employee where empname='Prashanth';
+ delete from employee where empid=4;
+ //Update
+ update employee set salary=15000 where empid=3;
+ update employee set salary=255500 where empname='Nithin';
