@@ -20,3 +20,6 @@ create table employee(empid serial primary key,empname varchar(40),dateofbirth d
 insert into department(deptname) values('IT');
 insert into department(deptname) values('Marketing');
 insert into department(deptname) values('Finance');
+
+insert into employee(empname,dateofbirth,salary,deptid) values ('Narendra','18-02-1955',1111556.50,3);
+insert into employee(empname,dateofbirth,salary,deptid) values ('Sreenivasa','28-05-1977',21556.50,2);
