@@ -14,3 +14,6 @@ create table department(deptid serial primary key,deptname varchar(50));
 select * from department;
 
 select * from department_deptid_seq;
+
+
+create table employee(empid serial primary key,empname varchar(40),dateofbirth date,salary double precision,deptid int references department(deptid));
