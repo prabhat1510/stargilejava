@@ -1,0 +1,111 @@
+ 1  ls -l
+    2  echo $JAVA_HOME
+    3  java --version
+    4  git --version
+    5  mvn --version
+    6  sudo yum install git
+    7  git --version
+    8  sudo yum install java
+    9  java --version
+   10  sudo yum install maven
+   11  mvn --version
+   12  cd /usr/share/maven
+   13  ls
+   14  cd bin
+   15  ls -l
+   16  cd ~
+   17  cd /usr/lib/jvm
+   18  ls
+   19  ls -al
+   20  cd java-11-openjdk-11.0.17.0.8-2.el9_0.x86_64/
+   21  ls
+   22  cd bin
+   23  ls -al
+   24  pwd
+   25  cd ~
+   26  ls
+   27  clear
+   28  git config --global user.name "prabhat1510"
+   29  git config --global user.email "prabhatc@gmail.com"
+   30  git clone https://github.com/prabhat1510/restfulapi.git
+   31  ls
+   32  cd restfulapi/
+   33  ls
+   34  git checkout master
+   35  ls
+   36  mvn clean install
+   37  ls
+   38  vi pom.xml
+   39  clear
+   40  mvn clean install
+   41  vi pom.xml
+   42  sudo yum install https://download.oracle.com/java/17/archive/jdk-17.0.5_linux-x64_bin.tar.gz
+   43  sudo wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
+   44  sudo yum install java-17-openjdk
+   45  java --version
+   46  cd /usr/lib/jvm/
+   47  ls
+   48  ls -al
+   49  cd java-17-openjdk-17.0.5.0.8-2.el9_0.x86_64/
+   50  ls
+   51  cd bin
+   52  ls
+   53  ls -al
+   54  pwd
+   55  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.5.0.8-2.el9_0.x86_64
+   56  echo $JAVA_HOME
+   57  printenv
+   58  cd ..
+   59  cd~
+   60  cd ~
+   61  ls
+   62  cd restfulapi/
+   63  ls
+   64  clean
+   65  clear
+   66  mvn clean
+   67  ls
+   68  mvn install
+   69  mvn --version
+   70  export PATH="$JAVA_HOME/bin:$PATH"
+   71  mvn --version
+   72  printenv
+   73  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.5.0.8-2.el9_0.x86_64
+   74  echo $JAVA_HOME
+   75  printenv | grep JAVA_HOME
+   76  java --version
+   77  mvn --version
+   78  sudo yum install maven
+   79  export MAVEN_HOME=/usr/share/maven
+   80  export PATH="$MAVEN_HOME/bin:$PATH"
+   81  printenv | grep MAVEN_HOME
+   82  printenv
+   83  mvn --version
+   84  sudo yum remove maven
+   85  mvn --version
+   86  java --version
+   87  cd ..
+   88  sudo yum install https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+   89  sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+   90  sudo yum install wget
+   91  sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.7/binaries/apache-maven-3.8.7-bin.tar.gz
+   92  ls
+   93  tar -xvf apache-maven-3.8.7-bin.tar.gz
+   94  ls -l
+   95  cd apache-maven-3.8.7
+   96  ls
+   97  pwd
+   98  echo $MAVEN_HOME
+   99*
+  100  export MAVEN_HOME=/home/ec2-user/apache-maven-3.8.7
+  101  export PATH="$MAVEN_HOME/bin:$PATH"
+  102  echo $MAVEN_HOME
+  103  mvn --version
+  104  clear
+  105  cd ..
+  106  cd restfulapi/
+  107  ls
+  108  mvn clean
+  109  mvn install
+  110  mvn -DskipTests=true install
+  111  history

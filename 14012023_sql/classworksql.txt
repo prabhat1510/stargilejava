@@ -1,0 +1,16 @@
+create database stardb;
+//create database stardb;
+\l
+//Connect to db
+\c stardb;
+
+\dt;
+
+create table department(deptid serial primary key,deptname varchar(50));
+
+\dt;
+\d department;
+
+select * from department;
+
+select * from department_deptid_seq;
