@@ -4,9 +4,10 @@ MAVEN HOME ---  /usr/share/maven
 JAVA HOME --- /usr/lib/jvm/java-17-openjdk-amd64
 
 Steps to Install Jenkings
-
+Adding the repository to our system to download jenkins
 wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |sudo gpg --dearmor -o /usr/share/keyrings/jenkins.gpg
 
+Appending the debian package repository address to the server's sources.list
 sudo sh -c 'echo deb [signed-by=/usr/share/keyrings/jenkins.gpg] http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 sudo apt update
@@ -18,9 +19,25 @@ sudo systemctl start jenkins.service
 
 sudo systemctl status jenkins
 
-Opening the firewall:--
+Opening the firewall(full form of ufw --- uncomplicated fireall) :--
 
 sudo ufw allow 8080
-
+sudo ufw enable
 
 sudo ufw status
+
+Open the browser :
+Give url ubuntu ip address or url with <ec2 instance url or ipaddress of ur machine>:8080
+
+Copy the path of the admin password and execute the below command on terminal 
+
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+Copy the password 
+Paste in the browser
+Next Page will be show options to install plugin
+Select the first option -- Install suggested plugin
+Once plugin installed you will get page to Create First Admin User
+Fill all details and save and continue
+Instance Configuration Page will come
+Click on Save and Finish
+On next page click on start using jenkins
