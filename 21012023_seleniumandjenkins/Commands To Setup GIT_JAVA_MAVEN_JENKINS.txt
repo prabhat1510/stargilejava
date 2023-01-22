@@ -1,0 +1,3 @@
+MAVEN HOME ---  /usr/share/maven
+
+JAVA HOME --- /usr/lib/jvm/java-17-openjdk-amd64

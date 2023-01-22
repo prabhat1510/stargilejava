@@ -1,0 +1,62 @@
+-----Building an image from our source code---
+
+cd restexample
+ls
+mvn clean install
+docker build -t restexample:1.3 .
+docker images
+docker login --username prabhatc
+docker tag restexample:1.3 prabhatc/restexample:1.3
+docker push prabhatc/restexample
+
+docker run -d -p 8081:8081 -it restexample:1.3
+
+
+//For Python project
+ mkdir python-docker
+ cd python-docker/
+ python3 -m venv .venv
+ sudo apt install python3.10-venv
+ python3 -m venv .venv
+ python3 -m pip freeze > requirements.txt
+ touch app.py
+ vi app.py
+
+  source .venv/bin/activate
+  python3 -m flask run
+  ls
+  vi Dockerfile
+  ls
+  ls -al
+  docker build --tag python-docker .
+  docker images
+  docker tag python-docker:latest python-docker:v1.0.0
+  docker images
+  docker run -d -p 5000:5000 python-docker:latest
+  docker ps -a
+
+//Content of the docker file for python project
+# syntax=docker/dockerfile:1
+
+FROM python:3.8-slim-buster
+
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+COPY . .
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+
+
+//app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, Docker!'
+
+
+
