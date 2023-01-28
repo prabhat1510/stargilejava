@@ -1,0 +1,48 @@
+Make sure jenkins is up and running
+Go to “Manage Jenkins” –> “Manage Plugins” –> “Available” Tab –> Search for “GitHub plugin” and install it.
+Go to “Manage Jenkins” –> “Configure System” –> Locate “Github” section and “Add Github Server” 
+api URL : https://api.github.com
+then add credentials provide github account username and password
+Save
+Go to “Manage Jenkins” –> Configure Global Security --> Check the two checkboxes under Git Hooks 
+Come back to home page
+Click on new item
+1. General-> Description
+2. Check Discard old builds checkbox --> Optionally you can enter Days to keep builds and Max # of builds to keep
+3. GitHub project-- copy your git project url
+4. Source Code Management
+	Select Git-> Enter repository url-> Add credentials-> click on Jenkins--> select username and password and add it.
+	Branches to build ---> default */master is present you can change as per your requirement
+5. Build Triggers
+	-- Build periodically(here you have to sepcify the time when you want to trigger your build)
+           or GitHub hook trigger for GITScm polling (check the checkbox)
+6. Build Environment
+	Delete workspace before build starts
+	Add timestamps to the Console Output
+ 	Terminate a build if it's stuck
+7. Build Steps
+	Invoke top-level Maven targets
+		Specify MAVEN_HOME
+		Goals
+			clean install
+			or if you want to skip tests cases you specify goal as
+			 clean -DskipTests=true install
+8. Post-build Actions
+	You can select any as per your need for here I am using Archive the artifacts
+	specify the path of the build file or jar file
+9. save
+
+Now the job is created
+To trigger it we have to configure github webhooks
+Go to your repository
+Go to Settings
+Go to Webhooks
+Add new webhooks
+Add the payload url --- <url of jenkins server>/github-webhook/
+Which events would you like to trigger this webhook?
+Select push event
+Save it or Add webhook
+
+	
+ 
+
