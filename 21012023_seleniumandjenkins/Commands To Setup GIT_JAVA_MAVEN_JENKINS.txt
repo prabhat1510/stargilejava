@@ -41,3 +41,29 @@ Fill all details and save and continue
 Instance Configuration Page will come
 Click on Save and Finish
 On next page click on start using jenkins
+
+
+Go to Manage Jenkins--> Manage Plugis--> Available Plugins
+Select 
+Maven Intgeration
+Pipeline Maven Integration
+GitHub Integration	 
+GitHub Authentication	 
+Pipeline: GitHub
+
+Install without restart
+
+Once installation done 
+Restart the jenkins
+
+Login again
+
+Go to Manage Jenkins-->  Global Tool Configuration
+Path you have to set
+JDK
+Maven 
+
+
+Click on New 
+Give name
+Select Freestyle Project
