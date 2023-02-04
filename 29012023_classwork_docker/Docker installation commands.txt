@@ -1,7 +1,14 @@
 sudo apt update
+#install a few prerequisite packages which let apt use packages over HTTPS:
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
+#Then add the GPG key for the official Docker repository to your system:
+#What is GPG keys used for?
+#GnuPG uses public-key cryptography so that users may communicate securely. 
+#In a public-key system, each user has a pair of keys consisting of a private key and a public key. A user's private key is kept secret; it need never be revealed. 
+#The public key may be given to anyone with whom the user wants to communicate.
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update
 apt-cache policy docker-ce
 sudo apt install docker-ce
+sudo systemctl status docker

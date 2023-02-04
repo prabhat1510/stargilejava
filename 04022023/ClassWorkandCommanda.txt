@@ -1,0 +1,43 @@
+ 1  clear
+    2  git --version
+    3  git config --global user.name "prabhat1510"
+    4  git config --global user.email "prabhatc@gmail.com"
+    5  java --version
+    6  sudo apt install openjdk-17-jre-headless
+    7  sudo apt-get update
+    8  sudo apt install openjdk-17-jre-headless
+    9  java --version
+   10  mvn --version
+   11  sudo apt install maven
+   12  python --version
+   13  python3 --version
+   14  sudo apt update
+   15  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+   16  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+   17  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   18  sudo apt update
+   19  apt-cache policy docker-ce
+   20  sudo apt install docker-ce
+   21  sudo systemctl status docker
+   22  sudo docker ps
+   23  sudo docker ps -a
+   24  sudo docker run hello-world
+   25  sudo ufw status
+   26  sudo ufw enable
+   27  sudo ufw status
+   28  sudo ufw allow 5000
+   29  sudo ufw allow 8080
+   30  sudo ufw allow 8081
+   31  sudo ufw allow OpenSSH
+   32  sudo ufw enable
+   33  sudo ufw status
+   34  mkdir pythonexample
+   35  cd pythonexample/
+   36  python3 -m venv .venv
+   37  sudo apt install python3.10-venv
+   38  ls
+   39  python3 -m venv .venv
+   40  python3 -m pip install Flask
+   41  history
+   python3 -m pip freeze > requirements.txt
+   touch app.py
