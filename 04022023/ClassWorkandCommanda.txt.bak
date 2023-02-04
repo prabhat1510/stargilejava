@@ -44,5 +44,3 @@
 
 Create a Dockerfile
 Paste the content from Docker wewbsite for Python program
-Build the image:--
-sudo docker build --tag python-docker .
