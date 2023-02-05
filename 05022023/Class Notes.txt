@@ -45,3 +45,13 @@ sudo docker run -d --net=my_bridge --name myubuntu ubuntu
 To check whether container created above is attached to my_bridge network run
 below command
 sudo docker inspect my_bridge
+
+Docker volume size
+sudo docket system df -v
+
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+If you get access denied then use below then run docker push command again
+sudo docker login
+Username:
+Password:
