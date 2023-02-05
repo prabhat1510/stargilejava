@@ -44,3 +44,9 @@
 
 Create a Dockerfile
 Paste the content from Docker wewbsite for Python program
+Build the image:--
+sudo docker build --tag python-docker .
+Build the image with tag 1.0
+sudo docker build --tag python-docker:1.0 .
+Run the image on a container---
+sudo docker run python-docker:1.0 .

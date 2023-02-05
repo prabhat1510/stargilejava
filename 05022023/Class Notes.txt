@@ -1,0 +1,47 @@
+Volumes vs Bind Mounts
+
+Volumes:
+1. Data volumes provide – the ability to persist data in 
+an organized way outside of the container independent of 
+the container’s lifecycle.
+2. Easy backups and recoveries
+3. /var/lib/docker -- volumes are stored in this location
+4. Docker can create a volume during the creation of containers 
+   and services when we run the docker volume create command.
+5. There are APIs and CLIs for interacting with Docker volumes
+
+
+Bind Mounts:
+1. Maps a host file or directory stored anywhere on the 
+container host filesystem, to a container file or a directory
+2. Backup and recoveries is bit of complex. We don't have to worry about it if we know what folders to backup
+3. It can reside anywhere on a host computer
+4. We can create bind mount before starting the container and make sure that file systems
+    are mounted in the correct order when using the bind option of the mount command.
+   Or we can start a container with a bind mount
+5. Through command line we cannot access bind mounts. The host machine still allows us to work with them instantly
+
+
+Networks are natural ways to isolate containers from other containers or other networks.
+
+ 	sudo docker network ls
+  121  sudo docker images
+  124  sudo docker ps
+  125  sudo docker network inspect bridge
+  126  sudo docker ps
+  127  clear
+  128  sudo docker network inspect bridge
+  129  sudo docker network disconnect bridge networktest
+  130  sudo docker network inspect bridge
+  131  sudo docker network ls
+
+
+Creating our own bridge network
+sudo docker network create -d bridge my_bridge
+
+Specifying the network my_bridge to a container named as myubuntu
+sudo docker run -d --net=my_bridge --name myubuntu ubuntu
+
+To check whether container created above is attached to my_bridge network run
+below command
+sudo docker inspect my_bridge
