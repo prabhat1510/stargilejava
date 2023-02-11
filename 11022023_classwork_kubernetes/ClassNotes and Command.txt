@@ -6,7 +6,17 @@ can spin everything up or tear it all down.
 docker-compose installation
 Check the version 
 sudo docker compose version
+mkdir composetest
+cd composetest
+#create app.py using vi app.py
+#create Dockerfile using vi Dockerfile
+#create requirements.txt vi command
+#create docker-compose.yml using vi command
+#Refer below link for the above files content
+#https://docs.docker.com/compose/gettingstarted/
+#Start the service using below command
 sudo docker compose up
+#Stop the service using below command
 sudo docker compose down
 
 
