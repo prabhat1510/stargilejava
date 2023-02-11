@@ -1,3 +1,43 @@
+Docker Compose is a tool that was developed to help define and share multi-container applications. 
+With Compose, we can create a YAML file to define the services and with a single command, 
+can spin everything up or tear it all down.
+
+
+docker-compose installation
+Check the version 
+sudo docker compose version
+sudo docker compose up
+sudo docker compose down
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21,3 +61,6 @@ By default, kubectl gets configured to access the kubernetes cluster control pla
 
 
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. 
+
+Installation of Kubernetes Cluster :
+https://devopscube.com/setup-kubernetes-cluster-kubeadm/
