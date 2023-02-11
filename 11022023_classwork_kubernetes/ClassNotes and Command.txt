@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://kuberty.io/blog/minikube-vs-kubectl/
+minikube: a ONE Node cluster, where the master and worker processes are on the same machine. 
+Kubectl, the command line tool for Kubernetes, then enables the interaction with the cluster: to create pods, services and other components.
+By default, kubectl gets configured to access the kubernetes cluster control plane inside minikube when the minikube start command is executed.
+
+
+NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. 
