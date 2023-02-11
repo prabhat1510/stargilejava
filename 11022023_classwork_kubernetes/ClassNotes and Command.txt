@@ -18,50 +18,17 @@ cd composetest
 sudo docker compose up
 #Stop the service using below command
 sudo docker compose down
+********************************************************************************
+Kubelet --- node agent running on node
+kube-proxy --- network proxy that runs on each node in your cluster
+kube api server ---The API server is the front end for the Kubernetes control plane.
+etcd ----Consistent and highly-available key value store used as Kubernetes' backing store for all cluster data.
+         If your Kubernetes cluster uses etcd as its backing store, make sure you have a back up plan for those data.
 
+kube-scheduler ---Control plane component that watches for newly created Pods with no assigned node, 
+                   and selects a node for them to run on.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+kube-controller-manager ---  Control plane component that runs controller processes.
 
 
 https://kuberty.io/blog/minikube-vs-kubectl/
