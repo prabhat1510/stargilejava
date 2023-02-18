@@ -1,0 +1,45 @@
+Kubernetes networking allows components to 
+communicate with each other and with other applications
+
+Different types of networking in Kubernetes:--
+
+Pod to Pod Networking
+Pod to Service 
+Container to Container 
+Internet to service networking
+
+Container to Container communications : this is solved by Pods and Localhost 
+Internet to service communications - is taken care by Services
+
+The network model is implemented by the container runtime on each node.
+We can create network model for our pods or containers on each node using 
+Networking tools such as cilium , vmware,flannel,cisco
+
+
+
+What is cloud computing?
+It is the on-demand delivery of IT resources over the 
+Internet with pay-as-you-go pricing.
+Instead of buying,owning, and maintining physical data centers and servers
+,we can acess technology services, such as computing power,storage,
+and databases, on an as-needed basis from a cloud provider
+like AWS, Azure, GCP
+
+
+
+Commands to run Apache web server on EC2 Ubuntu instance:---
+sudo apt update
+ sudo apt install apache2
+ apache2 -version
+ sudo ufw app list
+ sudo ufw allow Apache
+ sudo ufw status
+ sudo systemctl status apache2
+ cd /var/www/
+ ls
+ cd html
+ ls
+ vi index.html
+
+Use EC2 instance public url in browser see the page
+ 
