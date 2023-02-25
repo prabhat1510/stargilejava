@@ -1,0 +1,27 @@
+Installing aws cli on UBUNTU       
+Ensure that you have docker installed 
+
+//Then install awscli 
+sudo apt install awscli
+//Check AWS version      
+aws --version
+//Configure AWS credential --- Create an IAM user, add the permission needed, Create ACCess Key from aws console
+	
+aws configure
+It will four things
+	Access ID:
+	Secret Key:
+	Region: us-east-1
+	output format: json
+You get Login succeded message
+Then follow below steps:--
+Run below command 
+aws ecr-public get-login-password --region us-east-1 |sudo docker login --username AWS --password-stdin public.ecr.aws/g1h3m9i8
+Build an image of your code, make sure you application on your EC2 machine
+sudo docker build -t firstrepodev .
+sudo docker images
+sudo docker tag firstrepodev:latest public.ecr.aws/g1h3m9i8/firstrepodev:latest
+sudo docker images
+sudo docker push public.ecr.aws/g1h3m9i8/firstrepodev:latest
+  
+Then verify at ECR in AWS console whether image is pushed or not

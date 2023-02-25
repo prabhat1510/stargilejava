@@ -1,0 +1,44 @@
+AWS EKS
+Terraform
+Ansible
+Prometheus
+Jenkins Pipeline
+------------------------------------------------------------------------
+AWS EKS
+
+1. Preparation steps:--
+	1. Create AWS account
+	2. Create a VPC
+	3. Create an IAM role with Security Group(basically we are creating AWS user with permissions to access EKS cluster)
+
+2. Create Cluster Control Plane --- Master Nodes(eksctl)
+	We need to create the control plane with User created with above role. 
+	We can choose basic information :--		
+	-- cluster name and k8s version
+	--  region and VPC for our cluster
+	-- set security for our cluster
+
+3. Create Worker Nodes and connect to cluster
+	
+Install eksctl
+https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
+
+Command to be executed from console to create cluster
+eksctl create cluster --name myfirstcluster --version 1.24 --region ap-south-1 --nodegroup-name my-nodes --node-type t2.micro --nodes 2
+
+To delete cluster
+eksctl delete cluster --name <my-cluster> --region <region-code>
+
+
+
+Image already pushed ECR
+AWS EKS cluster is ready
+We have to deploye ECR image to EKS cluster
+
+Verify the permissions
+Go to EC2 instances --> click on the nodes--> IAM role --> check two permissions --> 
+AmazonEC2ContainerRegistryReadOnly, AmazonEC2ContainerRegistryPowerUser  should be associated
+
+
+
+ 
