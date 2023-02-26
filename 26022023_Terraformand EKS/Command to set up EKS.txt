@@ -44,6 +44,7 @@ kubectl get svc
 
 If getting error then two things :--
 error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+
 Step 1:
 Upgrade AWS CLI 
 sudo apt install python3-pip
