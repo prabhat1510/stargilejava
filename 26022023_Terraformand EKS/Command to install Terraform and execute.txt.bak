@@ -1,31 +1,31 @@
 	   sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
 	   terraform --help
+		
 		Install Terraform on Ubuntu
 		wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
 		echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 		sudo apt update && sudo apt install terraform
+		
 		Verify the installation
 		terraform --help
 		terraform -version
 		terraform -help plan
 		
 		mkdir learn-terraform-docker-container
-  276  cd learn-terraform-docker-container/
-  277  docker --version
-  278  ls
-  279  touch main.tf
-  280  ls
-  281  vi main.tf
+		cd learn-terraform-docker-container/
+		docker --version
+		ls
+		touch main.tf
+		ls
+		vi main.tf
   282  ls
   283  terraform init
-  284  ls
-  285  terraform plan
+  
   286  sudo terraform plan
   287  terraform apply
   288  sudo terraform apply
   289  sudo docker images
   290  sudo docker ps -a
-  291  curl https://localhost:8000
   292  curl http://localhost:8000
   293  sudo docker ps
   294  ls
@@ -33,3 +33,81 @@
   296  vi main.tf
   297  ls
   298  cat terraform.tfstate
+
+
+********************************************************************
+We will creating EC2 instance using terraform config file
+Create a directory
+mkdir learn-terraform-aws-instance
+cd learn-terraform-aws-instance
+touch main.tf
+vi main.tf
+
+
+
+Get an AMI ID usign command
+Go to EC2 dashboard launch instance select Amazon Machine Image then on 
+Right hand side in Summary-> Software image there you will find the ami-******** 
+this is your ami id copy it and paste in main.tf under resoruce section -> ami=
+OR
+aws ec2 describe-images --owners self amazon 
+
+terraform init
+terraform fmt
+terraform validate
+terraform apply
+type yes 
+It will create the infrastructure for your configuration
+
+
+ terraform show
+ terraform state list
+ 
+Change the image id in main.tf 
+ vi main.tf
+Apply 
+terraform apply
+To delete all the resources use below command
+terraform destroy
+
+
+
+ terraform apply
+  315  terraform destroy
+  316  history
+  317  ls
+  318  touch variables.tf
+  319  vi variables.tf
+Copy and paste below snippet in variables.tf  
+  variable "instance_name" {
+  description = "Value of the Name tag for the EC2 instance"
+  type        = string
+  default     = "ExampleAppServerInstance"
+}
+
+  320  ls
+  321  vi main.tf
+  322  ls
+  323  terraform apply
+  324  terraform apply -var "instance_name=AnotherNameAppServer"
+  325  cat main.tf
+  326  touch outputs.tf
+  327  vi outputs.tf
+Copy and Paste below snippet in outputs.tf
+output "instance_id" {
+  description = "ID of the EC2 instance"
+  value       = aws_instance.app_server.id
+}
+
+output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.app_server.public_ip
+}
+
+  
+  328  terrform apply
+  329  terraform apply
+  330  terraform outputs
+  331  terraform output
+  332  terraform destroy
+
