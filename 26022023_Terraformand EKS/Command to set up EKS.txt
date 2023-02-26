@@ -1,0 +1,103 @@
+eksctl delete cluster --name myfirstcluster --region ap-south-1
+
+
+eksctl create cluster --name myfcluster --version 1.25 --region ap-south-1 --nodegroup-name my-node --node-type t2.micro --nodes 2
+
+aws eks update-kubeconfig --region ap-south-1 --name myfcluster
+
+kubectl get svc
+
+If getting error then two things :--
+error: exec plugin: invalid apiVersion "client.authentication.k8s.io/v1alpha1"
+Step 1:
+Upgrade AWS CLI 
+sudo apt install python3-pip
+pip install --upgrade awscli
+
+Step 2: 
+In config file replace alpha1 with beta1
+
+kubectl get svc
+
+mkdir eks-sample-app
+cd eks-sample-app
+touch eks-sample-deployment.yaml
+vi eks-sample-deployment.yaml
+Copy and paste
+	apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eks-sample-linux-deployment
+  namespace: eks-sample-app
+  labels:
+    app: eks-sample-linux-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: eks-sample-linux-app
+  template:
+    metadata:
+      labels:
+        app: eks-sample-linux-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: nginx
+        image: public.ecr.aws/nginx/nginx:1.21
+        ports:
+        - name: http
+          containerPort: 80
+        imagePullPolicy: IfNotPresent
+      nodeSelector:
+        kubernetes.io/os: linux
+
+
+
+
+save above file
+Run below command
+kubectl create namespace eks-sample-app
+
+kubectl apply -f eks-sample-deployment.yaml
+
+
+Create a service
+touch eks-sample-service.yaml
+vi eks-sample-service.yaml
+
+copy and paste below code ::
+apiVersion: v1
+kind: Service
+metadata:
+  name: eks-sample-linux-service
+  namespace: eks-sample-app
+  labels:
+    app: eks-sample-linux-app
+spec:
+  selector:
+    app: eks-sample-linux-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+
+
+save it
+Run below command
+kubectl apply -f eks-sample-service.yaml
+
+verify the same in AWS console and service
+
+View all resources that exist in the eks-sample-app namespace
+kubectl get all -n eks-sample-app
