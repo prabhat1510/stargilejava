@@ -1,0 +1,35 @@
+	   sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+	   terraform --help
+		Install Terraform on Ubuntu
+		wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+		echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+		sudo apt update && sudo apt install terraform
+		Verify the installation
+		terraform --help
+		terraform -version
+		terraform -help plan
+		
+		mkdir learn-terraform-docker-container
+  276  cd learn-terraform-docker-container/
+  277  docker --version
+  278  ls
+  279  touch main.tf
+  280  ls
+  281  vi main.tf
+  282  ls
+  283  terraform init
+  284  ls
+  285  terraform plan
+  286  sudo terraform plan
+  287  terraform apply
+  288  sudo terraform apply
+  289  sudo docker images
+  290  sudo docker ps -a
+  291  curl https://localhost:8000
+  292  curl http://localhost:8000
+  293  sudo docker ps
+  294  ls
+  295  main.tf
+  296  vi main.tf
+  297  ls
+  298  cat terraform.tfstate

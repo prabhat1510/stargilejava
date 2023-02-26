@@ -143,3 +143,7 @@ verify the same in AWS console and service
 
 View all resources that exist in the eks-sample-app namespace
 kubectl get all -n eks-sample-app
+
+*****************************************************************************************************************************************
+eks-sample-linux-deployment-5765f44848-gsjdv --- Name of the POD , make sure replace it your own pod name
+kubectl exec -it eks-sample-linux-deployment-5765f44848-gsjdv -n eks-sample-app -- /bin/bash
