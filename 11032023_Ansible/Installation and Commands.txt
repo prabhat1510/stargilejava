@@ -1,1 +1,33 @@
 #Ansible commands
+#To install Ansible we need Python 3 and pip installer
+ python3 -m pip install --user ansible
+ 
+#Or else on Ubuntu
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+Once installed
+ansible --version
+
+Installing ansible on Amazon Linux -EC2
+amazon-linux-extras install epel;
+yum install ansible -y
+yum install nginx -y
+yum install git -y
+
+
+Install Node.js and set up the express server
+ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+ . ~/.nvm/nvm.sh
+ nvm install --lts
+mkdir server && cd server
+npm install express
+If you get error after npm install express then uninstall the nvm using below command
+ nvm uninstall 18.15.0
+
+Then install stable version of node 
+nvm install 16.0.0
+
+npm install express

@@ -1,0 +1,9 @@
+#Ansible commands
+#To install Ansible we need Python 3 and pip installer
+ python3 -m pip install --user ansible
+ 
+#Or else on Ubuntu
+$ sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
